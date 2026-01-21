@@ -1,0 +1,192 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// Student class - represents one student
+class Student {
+
+    // Variables (data members) of Student
+    int id;
+    String name;
+    int age;
+    String course;
+
+    // Constructor
+    // This runs automatically when a new Student object is created
+    // It initializes student details
+    Student(int id, String name, int age, String course) {
+        this.id = id;          // assign id to current object
+        this.name = name;      // assign name
+        this.age = age;        // assign age
+        this.course = course;  // assign course
+    }
+
+    // Method to display student details
+    void display() {
+        System.out.println(
+            "ID: " + id +
+            ", Name: " + name +
+            ", Age: " + age +
+            ", Course: " + course
+        );
+    }
+}
+
+// Main class
+public class StudentRecordSystem {
+
+    // ArrayList to store all student records
+    static ArrayList<Student> students = new ArrayList<>();
+
+    // Scanner object for user input
+    static Scanner sc = new Scanner(System.in);
+
+    // Main method - program execution starts here
+    public static void main(String[] args) {
+
+        int choice;
+
+        // Loop continues until user chooses Exit
+        do {
+            // Display menu
+            System.out.println("\n----- Student Record System -----");
+            System.out.println("1. Add Student");
+            System.out.println("2. Display Students");
+            System.out.println("3. Search Student");
+            System.out.println("4. Update Student");
+            System.out.println("5. Delete Student");
+            System.out.println("6. Exit");
+            System.out.print("Enter your choice: ");
+
+            // Take user choice
+            choice = sc.nextInt();
+
+            // Perform operation based on choice
+            switch (choice) {
+                case 1:
+                    addStudent();
+                    break;
+
+                case 2:
+                    displayStudents();
+                    break;
+
+                case 3:
+                    searchStudent();
+                    break;
+
+                case 4:
+                    updateStudent();
+                    break;
+
+                case 5:
+                    deleteStudent();
+                    break;
+
+                case 6:
+                    System.out.println("Program exited successfully.");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice! Please try again.");
+            }
+
+        } while (choice != 6);
+    }
+
+    // Method to add a student
+    static void addStudent() {
+
+        System.out.print("Enter ID: ");
+        int id = sc.nextInt();
+        sc.nextLine(); // clear buffer
+
+        System.out.print("Enter Name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter Age: ");
+        int age = sc.nextInt();
+        sc.nextLine(); // clear buffer
+
+        System.out.print("Enter Course: ");
+        String course = sc.nextLine();
+
+        // Create student object and add to list
+        students.add(new Student(id, name, age, course));
+
+        System.out.println("Student added successfully!");
+    }
+
+    // Method to display all students
+    static void displayStudents() {
+
+        if (students.isEmpty()) {
+            System.out.println("No student records available.");
+        } else {
+            for (Student s : students) {
+                s.display();
+            }
+        }
+    }
+
+    // Method to search a student by ID
+    static void searchStudent() {
+
+        System.out.print("Enter Student ID to search: ");
+        int id = sc.nextInt();
+
+        for (Student s : students) {
+            if (s.id == id) {
+                s.display();
+                return;
+            }
+        }
+
+        System.out.println("Student not found!");
+    }
+
+    // Method to update student details
+    static void updateStudent() {
+
+        System.out.print("Enter Student ID to update: ");
+        int id = sc.nextInt();
+        sc.nextLine(); // clear buffer
+
+        for (Student s : students) {
+            if (s.id == id) {
+
+                System.out.print("Enter New Name: ");
+                s.name = sc.nextLine();
+
+                System.out.print("Enter New Age: ");
+                s.age = sc.nextInt();
+                sc.nextLine(); // clear buffer
+
+                System.out.print("Enter New Course: ");
+                s.course = sc.nextLine();
+
+                System.out.println("Student record updated successfully!");
+
+                return;
+            }
+        }
+
+        System.out.println("Student not found!");
+    }
+
+    // Method to delete a student
+    static void deleteStudent() {
+
+        System.out.print("Enter Student ID to delete: ");
+        int id = sc.nextInt();
+
+        for (Student s : students) {
+            if (s.id == id) {
+                students.remove(s);
+                System.out.println("Student record deleted successfully!");
+                return;
+            }
+        }
+
+        System.out.println("Student not found!");
+    }
+}
