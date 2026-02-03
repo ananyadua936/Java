@@ -1,0 +1,83 @@
+import java.util.Scanner;
+public class exp4 {
+    public static class Calculator{
+        int add(int a,int b){
+            return a+b;
+        }
+        float add(float a,float b){
+            return a+b;
+        }
+        double add(double a, double b){
+            return a+b;
+        }
+        String add(String a,String b){
+            return a+b;
+        }
+        int add(int a,int b,int c){
+            return a+b+c;
+        }
+    }
+
+    static void main(){
+        Scanner sc=new Scanner(System.in);
+        int choice;
+        int a,b,c;
+        double d,db;
+        float x,y;
+        String s,str;
+        Calculator cal=new Calculator();
+        do{
+        System.out.println("-------------CALCULATOR--------------");
+        System.out.println("1:To add 2 integers");
+        System.out.println("2:To add 2 float number");
+        System.out.println("3:To add 2 double");
+        System.out.println("4:To add 2 String");
+        System.out.println("5:To add 3 integers");
+        System.out.println("6:Exit");
+        System.out.println("Enter your Choice: ");
+        choice=sc.nextInt();   
+        switch(choice){
+            case 1:
+                System.out.println("Enter 2 numbers: ");
+                a=sc.nextInt();
+                b=sc.nextInt();
+                sc.nextLine();
+                System.out.println("Sum is: "+cal.add(a,b));
+                break;
+            case 2:
+                System.out.println("Enter 2 Float: ");
+                x=sc.nextFloat();
+                y=sc.nextFloat();
+                sc.nextLine();
+                System.out.println("Sum is: "+cal.add(x,y));
+                break;
+            case 3:
+                System.out.println("Enter 2 double: ");
+                d=sc.nextDouble();
+                db=sc.nextDouble();
+                sc.nextLine();
+                System.out.println("Sum is: "+cal.add(d,db));
+                break;
+            case 4:
+                System.out.println("Enter 2 Strings: ");
+                s=sc.nextLine();
+                str=sc.nextLine();
+                System.out.println("Sum is: "+cal.add(s,str));
+                break;
+            case 5:
+                System.out.println("Enter 3 numbers: ");
+                a=sc.nextInt();
+                b=sc.nextInt();
+                c=sc.nextInt();
+                sc.nextLine();
+                System.out.println("Sum is: "+cal.add(a,b,c));
+                break;
+            case 6:
+                System.out.println("EXITING :D");
+                break;    
+        } 
+        }while(choice!=6);
+        
+        
+    }
+}
