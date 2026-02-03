@@ -1,0 +1,19 @@
+random guesser 
+
+
+import java.util.Scanner;
+
+public class pattern {
+    static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int num = (int)(Math.random() * 3);
+        System.out.println("Guess a random number between 1 to 3:");
+        int g=sc.nextInt();
+        if(g==num){
+            System.out.println("YOU GUESSED IT RIGHT :D");
+        }
+        else{
+            System.out.println("WRONG! TRY AGAIN :(, the number was: "+num);
+        }
+        }
+}
