@@ -1,0 +1,28 @@
+class GFG{
+    
+    static{
+        
+        System.out.println("GFG class is loaded by the JVM!");
+    }
+
+    public void display(){
+        
+        System.out.println("Method of GFG class is executed.");
+    }
+}
+
+public class Test{
+    public static void main(String[] args) throws Exception{
+        
+        System.out.println("Main method started.");
+
+        // Loading the class explicitly using Class.forName()
+        Class.forName("GFG");
+
+        System.out.println("Class loaded successfully.");
+
+        // Creating object to execute method
+        GFG obj = new GFG();
+        obj.display();
+    }
+}
