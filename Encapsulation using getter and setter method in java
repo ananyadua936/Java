@@ -1,0 +1,27 @@
+class Student {
+
+    // private variables (data hiding)
+    private int rollNo;
+    private String name;
+
+    // Getter method for rollNo
+    public int getRollNo() {
+        return rollNo;
+    }
+
+    // Setter method for rollNo
+    public void setRollNo(int rollNo) {
+        this.rollNo = rollNo;
+    }
+
+    // Getter method for name
+    public String getName() {
+        return name;
+    }
+
+    // Setter method for name
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+Step 2: Access Data Using Getter & Setter (Main
