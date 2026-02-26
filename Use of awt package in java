@@ -1,0 +1,15 @@
+import java.awt.*;
+
+public class Pack {
+   AWTExample() {
+      Frame fr1 = new Frame();
+      Label la = new Label("Welcome to The Page");
+      fr1.add(la);
+      fr1.setSize(300, 200);  
+      fr1.setVisible(true);
+   }
+
+   public static void main(String[] args) {
+      new AWTExample(); 
+   }
+}
