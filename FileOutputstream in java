@@ -1,0 +1,16 @@
+import java.io.FileOutputStream;
+public class Mainn{
+    public static void main(String[]args){
+        try{
+            FileOutputStream fos  = new FileOutputStream("Data.txt");
+            String text="Hello Guu";
+            byte[] b = text.getBytes();
+            fos.write(b);
+            fos.close();
+            System.out.println("Data Written Carefully!");
+        } catch(Exception e){
+            System.out.println(e);
+
+        }
+    }
+}
